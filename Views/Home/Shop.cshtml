@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Shop";
+}
+
+<div class="container">
+    <!-- Banner -->
+    <div class="banner text-center text-white d-flex align-items-center justify-content-center" style="background: url('/path-to-your-image.jpg') no-repeat center center/cover; height: 500px;">
+        <h1 class="fw-bold">Shop</h1>
+    </div>
+
+    <!-- Danh sách sản phẩm -->
+    <div class="row mt-4">
+        <div class="col-md-4" *ngFor="let product of products">
+            <div class="card">
+                <img src="~/Img/du-lich-viet-nam.jpg" class="card-img-top" alt="Product Image">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Product Name</h5>
+                    <p class="card-text">$100.00</p>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thông tin liên hệ -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <p class="fw-bold">Travel beyond your imagination, with our Travel Agency!</p>
+        <p>Address: One Microsoft Way, Redmond, WA 98052-6399</p>
+        <p>Contact: <a href="mailto:Support@example.com" class="text-white">Support@example.com</a> | +1 483 593 284</p>
+    </footer>
+</div>

@@ -26,5 +26,13 @@ namespace Project_WebDuLich.Controllers
 
             return View();
         }
+        public ActionResult Shop()
+        {
+            return View();
+        }
+        public ActionResult Profile()
+        {
+            return View();
+        }
     }
 }
