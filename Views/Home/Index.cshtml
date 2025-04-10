@@ -3,22 +3,124 @@
 }
 
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">Lập trình web nâng cao </h1>
-        <p class="lead">Xin chào </p>
-        @*<p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>*@
+    <!-- Search Section -->
+    <section class="search-section text-center">
+        <div class="banner text-center text-white d-flex align-items-center justify-content-center">
+            <div class="col-md-4 position-relative">
+                <img src="~/Img/Canh_dong.jpg" class="img-fluid image-style">
+                <h2 id="header" class="overlay-text">Adventure & Experience The Travel!</h2>
+                <div class="search-box">
+                    <input type="text" id="txtSearch" placeholder="Search">
+                    <button id="btnSearch" class="btn btn-primary">Search</button>
+                    <br />
+                    <select id="ddlCountry">
+                        <option>All Country</option>
+                        <option>Vietnam</option>
+                        <option>Thailand</option>
+                        <option>China</option>
+                        <option>Japan</option>
+                        <option>USA</option>
+                        <option>Korea</option>
+                    </select>
+                    <select id="ddlPrice">
+                        <option>All Price</option>
+                        <option>$100</option>
+                        <option>$200</option>
+                        <option>$500</option>
+                        <option>$600</option>
+                        <option>$700</option>
+                        <option>$1000</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        
-    </div>
+    <!-- Travel Categories -->
+    <section class="travel-categories text-center">
+        <div class="categories">
+            <h2>Plan the Trip of a Lifetime with Ease</h2>
+            <button class="btn btn-warning">City Walk Tour</button>
+            <button class="btn btn-success">Electric Bikes</button>
+            <button class="btn btn-info">Skyscrapers View</button>
+        </div>
+    </section>
+
+    <!-- Destination List -->
+    <section class="destinations text-center">
+        <div class="row">
+            @foreach (var destination in new[] {
+                new { Name = "Mu Cang Chai", Country = "Vietnam", Image = "Canh_dong.jpg" },
+                new { Name = "Chao Phraya", Country = "Thailand", Image = "Canh_dong.jpg" },
+                new { Name = "Bangkok", Country = "Thailand", Image = "Canh_dong.jpg" }
+            })
+            {
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="~/Img/@destination.Image" alt="@destination.Name">
+                        <div class="card-body">
+                            <h5>@destination.Name</h5>
+                            <p>@destination.Country</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+
+    <!-- Search Results -->
+    <div id="searchResults"></div>
 </main>
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#btnSearch").click(function () {
+            var keyword = $("#txtSearch").val();
+            var country = $("#ddlCountry").val();
+            var price = $("#ddlPrice").val();
+
+            $.ajax({
+                url: '@Url.Action("Search", "Home")',
+                type: 'GET',
+                data: { keyword: keyword, country: country, price: price },
+                success: function (data) {
+                    $("#searchResults").html(data);
+                },
+                error: function () {
+                    alert("Có lỗi xảy ra.");
+                }
+            });
+        });
+    });
+</script>
+
+<!-- CSS -->
+<style>
+    .position-relative {
+        position: relative;
+        display: inline-block;
+    }
+
+    .image-style {
+        height: 500px;
+        width: 100%;
+        display: block;
+        flex: 1;
+    }
+
+    .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+</style>
