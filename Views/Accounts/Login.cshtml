@@ -1,0 +1,30 @@
+﻿@model Project_WebDuLich.Models.ViewModel.LoginViewModel 
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Accounts", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.UserName)
+    @Html.TextBoxFor(m => m.UserName)
+    @Html.ValidationMessageFor(m => m.UserName)
+
+    @Html.LabelFor(m => m.PasswordHash)
+    @Html.PasswordFor(m => m.PasswordHash)
+    @Html.ValidationMessageFor(m => m.PasswordHash)
+
+    <button type="submit">Login</button>
+}
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div style="color:red">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}

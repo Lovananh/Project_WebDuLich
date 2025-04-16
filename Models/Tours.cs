@@ -22,7 +22,7 @@ namespace Project_WebDuLich.Models
         public decimal Price { get; set; }
 
         [Required]
-        public TimeSpan Duration { get; set; } // Thời gian của tour (ví dụ: 2 ngày 3 đêm)
+        public int  Duration { get; set; } // Thời gian của tour (ví dụ: 2 ngày 3 đêm)
 
         public string ImageURL { get; set; }
 

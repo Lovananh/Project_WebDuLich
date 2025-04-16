@@ -1,0 +1,33 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Admin - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-dark bg-dark p-3">
+        <span class="navbar-brand">Admin Dashboard</span>
+        @Html.ActionLink("Tài khoản", "Profile", "User", null, new { @class = "btn btn-primary me-2" })
+        @Html.ActionLink("Đăng xuất", "Logout", "Login", null, new { @class = "btn btn-danger" })
+    </div>
+
+    <div class="container mt-3">
+        <ul class="nav nav-pills mb-3">
+            <li class="nav-item">@Html.ActionLink("Trang chủ", "Index", "Admin", null, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Quản lý Tour", "Index", "Tours", null, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Quản lý Tin tức", "Index", "News", null, new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Quản lý Booking", "Index", "Bookings", null, new { @class = "nav-link" })</li>
+        </ul>
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

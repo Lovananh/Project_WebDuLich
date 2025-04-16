@@ -21,7 +21,7 @@ namespace Project_WebDuLich.Models
         public string PasswordHash { get; set; } // Lưu mật khẩu đã mã hóa
 
         [Required]
-        public string Role { get; set; } // Admin, User
+        public string Role { get; set; } = "User";// Admin, User
 
         [Required, Phone]
         public string Phone { get; set; } // Chuyển thành string để không mất số 0 đầu tiên

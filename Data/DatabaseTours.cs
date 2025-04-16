@@ -4,7 +4,7 @@ namespace Project_WebDuLich.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
-
+    using Project_WebDuLich.Models;
     public partial class DatabaseTours : DbContext
     {
         public DatabaseTours()
@@ -20,6 +20,7 @@ namespace Project_WebDuLich.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<News>().HasKey(n => n.NewsID); // Đảm bảo khóa chính
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

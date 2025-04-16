@@ -129,9 +129,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ToursController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -150,12 +151,21 @@
     <Compile Include="Migrations\202503311649392_FixDurationData.Designer.cs">
       <DependentUpon>202503311649392_FixDurationData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202504151545471_InitialCreate1.cs" />
+    <Compile Include="Migrations\202504151545471_InitialCreate1.Designer.cs">
+      <DependentUpon>202504151545471_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202504151558239_ChangeDurationToInt.cs" />
+    <Compile Include="Migrations\202504151558239_ChangeDurationToInt.Designer.cs">
+      <DependentUpon>202504151558239_ChangeDurationToInt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booking.cs" />
-    <Compile Include="Models\DatabaseTours.cs" />
+    <Compile Include="Data\DatabaseTours.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Tours.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -211,11 +221,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Shop.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
-    <Content Include="Views\Tours\Create.cshtml" />
-    <Content Include="Views\Tours\Delete.cshtml" />
-    <Content Include="Views\Tours\Details.cshtml" />
-    <Content Include="Views\Tours\Edit.cshtml" />
-    <Content Include="Views\Tours\Index.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
     <Content Include="Views\Users\Details.cshtml" />
@@ -231,11 +236,21 @@
     <Content Include="Views\News\Details.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Accounts\Register.cshtml" />
+    <Content Include="Views\Tours\Create.cshtml" />
+    <Content Include="Views\Tours\Delete.cshtml" />
+    <Content Include="Views\Tours\Details.cshtml" />
+    <Content Include="Views\Tours\Edit.cshtml" />
+    <Content Include="Views\Tours\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Img\" />
+    <Folder Include="Models\ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -274,6 +289,12 @@
     <EmbeddedResource Include="Migrations\202503311649392_FixDurationData.resx">
       <DependentUpon>202503311649392_FixDurationData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504151545471_InitialCreate1.resx">
+      <DependentUpon>202504151545471_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504151558239_ChangeDurationToInt.resx">
+      <DependentUpon>202504151558239_ChangeDurationToInt.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -293,11 +314,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55424</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44362/</IISUrl>
+          <IISUrl>http://localhost:55424/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>https://localhost:44362/</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

@@ -1,0 +1,32 @@
+﻿@model Project_WebDuLich.Models.ViewModel.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.UserName)
+    @Html.TextBoxFor(m => m.UserName)
+    @Html.ValidationMessageFor(m => m.UserName)
+
+
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email)
+    @Html.ValidationMessageFor(m => m.Email)
+
+    @Html.LabelFor(m => m.Phone)
+    @Html.TextBoxFor(m => m.Phone)
+    @Html.ValidationMessageFor(m => m.Phone)
+
+    @Html.LabelFor(m => m.PasswordHash)
+    @Html.PasswordFor(m => m.PasswordHash)
+    @Html.ValidationMessageFor(m => m.PasswordHash)
+
+    @Html.LabelFor(m => m.ConfirmPassword)
+    @Html.PasswordFor(m => m.ConfirmPassword)
+    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+
+    <button type="submit">Register</button>
+}

@@ -17,15 +17,13 @@
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-        <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
+
                     <li>@Html.ActionLink("Shop", "Shop", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Tours","Index", "Tours", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Trang du lịch ", "Index", "Tours", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("News", "Index", "News", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Booking", "Index", "Bookings", new { area = "" }, new { @class = "nav-link" })</li>
-
+                    <li class="nav-item">@Html.ActionLink("Trang chủ admin ", "Index", "Admin", null, new { @class = "nav-link" })</li>
 
 
                 </ul>
@@ -34,7 +32,14 @@
                     <li>
                         <a href="@Url.Action("Profile", "Home")" class="btn btn-primary">Profile</a>
                     </li>
+                    <li>
+                        <a href="@Url.Action("Register", "Accounts")" class="btn btn-primary">Đăng ký </a>  
+                        </li>
+                    <li>
+                        <a href="@Url.Action("Login", "Accounts")" class="btn btn-primary">Đăng nhập </a>
+                    </li>
                 </ul>
+
             </div>
         </div>
     </nav>
