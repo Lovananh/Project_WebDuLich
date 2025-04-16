@@ -29,12 +29,12 @@
             TourName = "Khám phá Đà Nẵng",  
             Location = "Đà Nẵng",
             Price = 10, 
-            Duration = TimeSpan.FromDays(2),
+            Duration = 2,
             ImageURL = "danang.jpg",
             Description = "Trải nghiệm vẻ đẹp của Đà Nẵng với bãi biển Mỹ Khê, Bà Nà Hills, cầu Rồng và ẩm thực đặc sắc." },
-        new Tours { TourID = 2, TourName = "Hành trình Hội An", Location = "Hội An", Price = 2500000, Duration = TimeSpan.FromDays(2), ImageURL = "hoian.jpg", Description = "Khám phá phố cổ Hội An với những con hẻm nhỏ, đèn lồng lung linh và ẩm thực địa phương tuyệt vời." },
-        new Tours { TourID = 3, TourName = "Khám phá Phố cổ Hà Nội", Location = "Hà Nội", Price = 4000000, Duration = TimeSpan.FromDays(2), ImageURL = "hanoi.jpg", Description = "Trải nghiệm nét cổ kính của phố cổ Hà Nội, thăm Lăng Bác, hồ Hoàn Kiếm và thưởng thức phở Hà Nội." },
-        new Tours { TourID = 4, TourName = "Du lịch Vịnh Hạ Long", Location = "Hạ Long", Price = 5000000, Duration = TimeSpan.FromDays(1), ImageURL = "halong.jpg", Description = "Chiêm ngưỡng kỳ quan thiên nhiên thế giới Vịnh Hạ Long với những hòn đảo đá vôi hùng vĩ." }
+        new Tours { TourID = 2, TourName = "Hành trình Hội An", Location = "Hội An", Price = 2500000, Duration = 2, ImageURL = "hoian.jpg", Description = "Khám phá phố cổ Hội An với những con hẻm nhỏ, đèn lồng lung linh và ẩm thực địa phương tuyệt vời." },
+        new Tours { TourID = 3, TourName = "Khám phá Phố cổ Hà Nội", Location = "Hà Nội", Price = 4000000, Duration = 1, ImageURL = "hanoi.jpg", Description = "Trải nghiệm nét cổ kính của phố cổ Hà Nội, thăm Lăng Bác, hồ Hoàn Kiếm và thưởng thức phở Hà Nội." },
+        new Tours { TourID = 4, TourName = "Du lịch Vịnh Hạ Long", Location = "Hạ Long", Price = 5000000, Duration = 5, ImageURL = "halong.jpg", Description = "Chiêm ngưỡng kỳ quan thiên nhiên thế giới Vịnh Hạ Long với những hòn đảo đá vôi hùng vĩ." }
     };
             context.tours.AddOrUpdate(t => t.TourID, tours.ToArray());
 
