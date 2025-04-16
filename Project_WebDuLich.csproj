@@ -130,39 +130,23 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\BookingsController.cs" />
+    <Compile Include="Controllers\AdminBookingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\AdminNewsController.cs" />
     <Compile Include="Controllers\ToursController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Data\DatabaseTour.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202503131319153_UpdateDatabase.cs" />
-    <Compile Include="Migrations\202503131319153_UpdateDatabase.Designer.cs">
-      <DependentUpon>202503131319153_UpdateDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202503171520590_InitialCreate.cs" />
-    <Compile Include="Migrations\202503171520590_InitialCreate.Designer.cs">
-      <DependentUpon>202503171520590_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202503311649392_FixDurationData.cs" />
-    <Compile Include="Migrations\202503311649392_FixDurationData.Designer.cs">
-      <DependentUpon>202503311649392_FixDurationData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202504151545471_InitialCreate1.cs" />
-    <Compile Include="Migrations\202504151545471_InitialCreate1.Designer.cs">
-      <DependentUpon>202504151545471_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202504151558239_ChangeDurationToInt.cs" />
-    <Compile Include="Migrations\202504151558239_ChangeDurationToInt.Designer.cs">
-      <DependentUpon>202504151558239_ChangeDurationToInt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booking.cs" />
-    <Compile Include="Data\DatabaseTours.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\TourHotel.cs" />
     <Compile Include="Models\Tours.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -226,16 +210,16 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Bookings\Create.cshtml" />
-    <Content Include="Views\Bookings\Delete.cshtml" />
-    <Content Include="Views\Bookings\Details.cshtml" />
-    <Content Include="Views\Bookings\Edit.cshtml" />
-    <Content Include="Views\Bookings\Index.cshtml" />
-    <Content Include="Views\News\Create.cshtml" />
-    <Content Include="Views\News\Delete.cshtml" />
-    <Content Include="Views\News\Details.cshtml" />
-    <Content Include="Views\News\Edit.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\AdminBookings\UpdateStatus.cshtml" />
+    <Content Include="Views\AdminBookings\Delete.cshtml" />
+    <Content Include="Views\AdminBookings\Details.cshtml" />
+    <Content Include="Views\AdminBookings\Edit.cshtml" />
+    <Content Include="Views\AdminBookings\Index.cshtml" />
+    <Content Include="Views\AdminNews\Create.cshtml" />
+    <Content Include="Views\AdminNews\Delete.cshtml" />
+    <Content Include="Views\AdminNews\Details.cshtml" />
+    <Content Include="Views\AdminNews\Edit.cshtml" />
+    <Content Include="Views\AdminNews\Index.cshtml" />
     <Content Include="Views\Accounts\Login.cshtml" />
     <Content Include="Views\Accounts\Register.cshtml" />
     <Content Include="Views\Tours\Create.cshtml" />
@@ -278,23 +262,6 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.0.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202503131319153_UpdateDatabase.resx">
-      <DependentUpon>202503131319153_UpdateDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202503171520590_InitialCreate.resx">
-      <DependentUpon>202503171520590_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202503311649392_FixDurationData.resx">
-      <DependentUpon>202503311649392_FixDurationData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202504151545471_InitialCreate1.resx">
-      <DependentUpon>202504151545471_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202504151558239_ChangeDurationToInt.resx">
-      <DependentUpon>202504151558239_ChangeDurationToInt.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,73 +1,25 @@
 ﻿@model Project_WebDuLich.Models.Tours
-
 @{
-    ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Xoá Tour";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<h2>🗑️ Xác nhận xoá Tour</h2>
 
-<h2>Delete</h2>
+<h4>Bạn có chắc chắn muốn xoá Tour: <strong>@Model.TourName</strong> không?</h4>
+<dl class="dl-horizontal">
+    <dt>Địa điểm</dt>
+    @*<dd>@Model.Location</dd>*@
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Tours</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TourName)
-        </dt>
+    <dt>Giá</dt>
+    <dd>@Model.Price.ToString("N0") VNĐ</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TourName)
-        </dd>
+    <dt>Thời gian</dt>
+    <dd>@Model.Duration ngày</dd>
+</dl>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Duration)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Duration)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageURL)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageURL)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Xoá</button>
+    @Html.ActionLink("Huỷ", "Index", null, new { @class = "btn btn-secondary" })
+}

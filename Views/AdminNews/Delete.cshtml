@@ -1,0 +1,14 @@
+﻿@model Project_WebDuLich.Models.News
+@{
+    ViewBag.Title = "Xoá tin tức";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>⚠️ Bạn có chắc muốn xoá tin này?</h2>
+<h4>@Model.Title</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Xoá</button>
+    @Html.ActionLink("Huỷ", "Index", null, new { @class = "btn btn-secondary" })
+}
