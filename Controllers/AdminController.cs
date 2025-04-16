@@ -2,13 +2,14 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using Project_WebDuLich.Data;
 using Project_WebDuLich.Models;
 
 namespace Project_WebDuLich.Areas.Admin.Controllers
 {
     public class AdminToursController : Controller
     {
-        private DatabaseTours db = new DatabaseTours();
+        private DatabaseTour db = new DatabaseTour();
 
         // GET: Admin/AdminTours
         public ActionResult Index()

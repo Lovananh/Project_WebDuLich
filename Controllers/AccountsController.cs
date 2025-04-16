@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Project_WebDuLich.Data;
 using Project_WebDuLich.Models;
 using Project_WebDuLich.Models.ViewModel;
 
@@ -10,7 +11,7 @@ namespace Project_WebDuLich.Controllers
 {
     public class AccountsController : Controller
     {
-        private DatabaseTours db = new DatabaseTours();
+        private DatabaseTour db = new DatabaseTour();
 
         // GET: /Account/Register
         public ActionResult Register() => View();
