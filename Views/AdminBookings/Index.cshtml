@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Project_WebDuLich.Models.Booking>
+@{
+    ViewBag.Title = "Quản lý Booking";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>📚 Danh sách Booking</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Người đặt</th>
+        <th>Email</th>
+        <th>Tour</th>
+        <th>Ngày đặt</th>
+        <th>Trạng thái</th>
+        <th>Tổng giá</th>
+        <th>Thao tác</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.BookingID</td>
+            <td>@item.User.UserName</td>
+            <td>@item.User.Email</td>
+            <td>@item.Tour.TourName</td>
+            <td>@item.BookingDate.ToShortDateString()</td>
+            <td>@item.Status</td>
+            <td>@item.TotalPrice.ToString("N0") VNĐ</td>
+            <td>
+                @Html.ActionLink("👁️", "Details", new { id = item.BookingID }, new { @class = "btn btn-sm btn-info" }) |
+                @Html.ActionLink("⚙️", "UpdateStatus", new { id = item.BookingID }, new { @class = "btn btn-sm btn-warning" })
+            </td>
+        </tr>
+    }
+</table>

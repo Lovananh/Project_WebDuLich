@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Project_WebDuLich.Data;
 using Project_WebDuLich.Models;
 
 namespace Project_WebDuLich.Controllers
 {
     public class ToursController : Controller
     {
-        private DatabaseTours db = new DatabaseTours();
+        private DatabaseTour db = new DatabaseTour();
 
         // GET: Tours
         public ActionResult Index()

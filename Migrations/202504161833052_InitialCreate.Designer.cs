@@ -7,13 +7,13 @@ namespace Project_WebDuLich.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class FixDurationData : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FixDurationData));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202503311649392_FixDurationData"; }
+            get { return "202504161833052_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source
