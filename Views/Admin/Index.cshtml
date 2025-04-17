@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Project_WebDuLich.Models.Tours>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Quản lý Tour";
+}
+<h2 class="mb-3">Quản lý Tour</h2>
+<p>
+    @Html.ActionLink("➕ Thêm Tour mới", "Create", null, new { @class = "btn btn-success mb-2" })
+</p>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Tên Tour</th>
+        @*<th>Địa điểm</th>*@
+        <th>Giá</th>
+        <th>Thời gian</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TourID</td>
+            <td>@item.TourName</td>
+            @*<td>@item.Location</td>*@
+            <td>@item.Price.ToString("N0") VNĐ</td>
+            <td>@item.Duration ngày</td>
+            <td>
+                @Html.ActionLink("✏️", "Edit", new { id = item.TourID }, new { @class = "btn btn-sm btn-warning" }) |
+                @Html.ActionLink("🗑️", "Delete", new { id = item.TourID }, new { @class = "btn btn-sm btn-danger" })
+            </td>
+        </tr>
+    }
+</table>

@@ -1,65 +1,44 @@
-﻿@model IEnumerable<Project_WebDuLich.Models.Tours>
-
+﻿@model Project_WebDuLich.Models.Tours
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Thêm Tour mới";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<h1> xin chao</h1>
-@*<h2>Index</h2>
+<h2>➕ Thêm Tour mới</h2>
 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TourName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Duration)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageURL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th></th>
-    </tr>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TourName)
+        @Html.TextBoxFor(model => model.TourName, new { @class = "form-control" })
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TourName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageURL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TourID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TourID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TourID })
-        </td>
-    </tr>
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.Location)
+        @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+    </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price)
+        @Html.TextBoxFor(model => model.Price, new { @class = "form-control", type = "number", step = "1000" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Duration, "Thời gian (ngày)")
+        @Html.TextBoxFor(model => model.Duration, new { @class = "form-control", type = "number" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImageURL)
+        @Html.TextBoxFor(model => model.ImageURL, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description)
+        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", rows = 4 })
+    </div>
+
+    <button type="submit" class="btn btn-success">Lưu</button>
+    @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-secondary" })
 }
-
-</table>*@

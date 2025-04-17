@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,7 @@ namespace Project_WebDuLich.Models
 	public class User
 	{
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserID { get; set; }
 
         [Required]
@@ -18,13 +20,12 @@ namespace Project_WebDuLich.Models
         public string Email { get; set; }
 
         [Required]
-        public string PasswordHash { get; set; } // Lưu mật khẩu đã mã hóa
+        public string PasswordHash { get; set; }
 
         [Required]
-        public string Role { get; set; } // Admin, User
+        public string Role { get; set; } = "User";
 
         [Required, Phone]
-        public string Phone { get; set; } // Chuyển thành string để không mất số 0 đầu tiên
-
+        public string Phone { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -8,7 +9,6 @@ namespace Project_WebDuLich.Models
 {
 	public class Tours
 	{
-
         [Key]
         public int TourID { get; set; }
 
@@ -16,16 +16,29 @@ namespace Project_WebDuLich.Models
         public string TourName { get; set; }
 
         [Required]
-        public string Location { get; set; }
+        public string Description { get; set; }
+
+        public string ImageURL { get; set; }
 
         [Required, Range(0, double.MaxValue)]
         public decimal Price { get; set; }
 
         [Required]
-        public TimeSpan Duration { get; set; } // Thời gian của tour (ví dụ: 2 ngày 3 đêm)
+        public int Duration { get; set; }
 
-        public string ImageURL { get; set; }
+        public int AvailableSeats { get; set; }
 
-        public string Description { get; set; }
+        // Khóa ngoại
+        [ForeignKey("Category")]
+        public int CategoryID { get; set; }
+
+        [ForeignKey("City")]
+        public int CityID { get; set; }
+
+        // Quan hệ
+        public virtual Category Category { get; set; }
+        public virtual City City { get; set; }
+        public virtual ICollection<TourHotel> TourHotels { get; set; }
+        public virtual ICollection<News> News { get; set; }
     }
 }
